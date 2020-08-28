@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<!--
+@author Akash Singh
+@email contact@akashsingh.io
+@web akashsingh.io
+-->
+
+<html>
+<head>
+	<title>Signal Test - Browser</title>
+</head>
+<body>
+	<div class="container">
+		<div class="init-container">
+			<h1>Init</h1>
+			<div id="error-init-container" class="error-message" style="color: red;"></div>
+			<div id="success-init-container" class="success-message" style="color: green;"></div>
+			<label>
+				<span>Enter your device ID</span>
+				<input type="text" name="init-device-id" id="init-device-id">
+			</label>
+			<button style="margin-top: 20px;" id="init-my-identity">Initialize</button>
+			<label>
+				<span>Your registration ID (will be populated on init)</span>
+				<input type="text" name="init-registration-id" id="init-registration-id">
+			</label>
+		</div>
+		<div class="send-container">
+			<h1>Send</h1>
+			<div id="error-send-container" class="error-message" style="color: red;"></div>
+			<div id="success-send-container" class="success-message" style="color: green;"></div>
+			<div class="registration-id">
+				<h2>Registration ID</h2>
+				<label>
+					<span>Registration Id</span>
+					<input type="text" name="registration-id" id="registration-id">
+				</label>
+			</div>
+			<div class="identity-key">
+				<h2>Identity Key Packet</h2>
+				<label>
+					<span>Identity Key</span>
+					<input type="text" name="identity-key" id="identity-key">
+				</label>
+			</div>
+			<div class="signed-prekey">
+				<h2>Signed Prekey Packet</h2>
+				<label>
+					<span>Key Id</span>
+					<input type="text" name="signed-prekey-id" id="signed-prekey-id">
+				</label>
+				<label>
+					<span>Public Key</span>
+					<input type="text" name="signed-prekey-key" id="signed-prekey-key">
+				</label>
+				<label>
+					<span>Signature</span>
+					<input type="text" name="signed-prekey-signature" id="signed-prekey-signature">
+				</label>
+			</div>
+			<div class="prekey">
+				<h2>Prekey Packet</h2>
+				<label>
+					<span>Key Id</span>
+					<input type="text" name="prekey-id" id="prekey-id">
+				</label>
+				<label>
+					<span>Public Key</span>
+					<input type="text" name="prekey-key" id="prekey-key">
+				</label>
+			</div>
+			<button style="margin-top: 20px;" id="send-keys">Send</button>
+		</div>
+		<hr>
+		<hr>
+		<div class="receive-container">
+			<div class="request-keys-form">
+				<div id="error-request-keys-form" class="error-message" style="color: red;"></div>
+				<div id="success-request-keys-form" class="success-message" style="color: green;"></div>
+				<label>
+					<span>Registration Id</span>
+					<input type="text" name="request-keys-registration-id" id="request-keys-registration-id">
+				</label>
+				<label>
+					<span>Device Id</span>
+					<input type="text" name="request-keys-device-id" id="request-keys-device-id">
+				</label>
+				<button style="margin-top: 20px;" id="request-keys">Request Keys</button>	
+			</div>
+			<hr>
+			<h1>Receive</h1>
+			<div id="error-process-keys-form" class="error-message" style="color: red;"></div>
+			<div id="success-process-keys-form" class="success-message" style="color: green;"></div>
+			<div class="registration-id">
+				<h2>Registration ID</h2>
+				<label>
+					<span>Registration Id</span>
+					<input type="text" name="receive-registration-id" id="receive-registration-id">
+				</label>
+			</div>
+			<div class="device-id">
+				<h2>Device ID</h2>
+				<label>
+					<span>Device Id</span>
+					<input type="text" name="receive-device-id" id="receive-device-id">
+				</label>
+			</div>
+			<div class="identity-key">
+				<h2>Identity Key Packet</h2>
+				<label>
+					<span>Identity Key</span>
+					<input type="text" name="receive-identity-key" id="receive-identity-key">
+				</label>
+			</div>
+			<div class="signed-prekey">
+				<h2>Signed Prekey Packet</h2>
+				<label>
+					<span>Key Id</span>
+					<input type="text" name="receive-signed-prekey-id" id="receive-signed-prekey-id">
+				</label>
+				<label>
+					<span>Public Key</span>
+					<input type="text" name="receive-signed-prekey-key" id="receive-signed-prekey-key">
+				</label>
+				<label>
+					<span>Signature</span>
+					<input type="text" name="receive-signed-prekey-signature" id="receive-signed-prekey-signature">
+				</label>
+			</div>
+			<div class="prekey">
+				<h2>Prekey Packet</h2>
+				<label>
+					<span>Key Id</span>
+					<input type="text" name="receive-prekey-id" id="receive-prekey-id">
+				</label>
+				<label>
+					<span>Public Key</span>
+					<input type="text" name="receive-prekey-key" id="receive-prekey-key">
+				</label>
+			</div>
+			<button style="margin-top: 20px;" id="parse-keys">Process</button>
+		</div>
+		<hr>
+		<hr>
+		<div class="message-container" style="display: inline-block;">
+			<h1>Messaging</h1>
+			<div id="error-messaging-form" class="error-message" style="color: red;"></div>
+			<div id="success-messaging-form" class="success-message" style="color: green;"></div>
+			<div class='contacts'>
+				<h3>Saved Contacts</h3>
+				<ul id="list-of-contacts">
+					<li>Unique ID: sampleDevId+sampleRegId Registration ID: sampleRegId Device ID: sampleDevId</li>
+				</ul>
+			</div>
+			<div class="send-fields-container">
+				<label>
+					<span>To</span>
+					<input type="text" name="message-to-field" id="message-to-field">
+				</label>
+				<label>
+					<span>Message</span>
+					<input type="text" name="send-plaintext" id="send-plaintext">
+				</label>
+				<button style="margin-top: 20px;" id="send-message">Send</button>
+			</div>
+			<div class="receive-fields-container">
+				<label>
+					<span>From</span>
+					<input type="text" name="message-from-field" id="message-from-field">
+				</label>
+				<button style="margin-top: 20px;" id="receive-message">Get Message</button>
+				<label>
+					<span>Message</span>
+					<input type="text" name="receive-plaintext" id="receive-plaintext">
+				</label>
+			</div>
+		</div>
+	</div>
+</body>
+<footer>
+	<script type="text/javascript" src="libsignal-protocol.js"></script>
+	<script type="text/javascript" src="util.js"></script>
+	<script type="text/javascript" src="store.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</footer>
+</html>
